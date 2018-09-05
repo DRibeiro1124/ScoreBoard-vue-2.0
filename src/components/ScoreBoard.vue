@@ -116,4 +116,18 @@ export default {
     .score {
         font-size: 3em;
     }
+
+    .main-box {
+        border: 3px solid red;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 2em;
+    }
+
+    button {
+        margin: 4px;
+        border-radius: 4px;
+    }
+
 </style>

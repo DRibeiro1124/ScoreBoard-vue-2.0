@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    
     <ScoreBoard />
   </div>
 </template>
