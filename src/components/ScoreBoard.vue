@@ -4,85 +4,70 @@
             <h1>NBA Score Board</h1>
         </header>
         <section class="main-box">
-            <div class="home-team">
-                <p>Home Team</p>
-                <h3>{{homeTeamDisplayName}}</h3>
-                <p class="score">{{homeScore}}</p>
-                <div>
-                    <input type="text" v-model="homeName" placeholder="Upadate Home Team Name">
-                    <button v-on:click="homeTeamUpdateName">Update</button>
-                </div>
-                <div>
-                    <p>Update Home Team Score</p>
-                    <button v-on:click="homeTeamAdd1">Add 1</button>
-
-                </div>
+            <div class="home-team"></div>
+            <p>Home Team</p>
+            <h3>{{team1DisplayName}}</h3>
+            <p class="score">{{team1_score}}</p>
+            <div>
+                <input v-model="team1Name" type="text" placeholder="Update Home Team Name">
+                <button v-on:click="t1_update_name">Update</button>
             </div>
-
+            <div>
+                <p>Update Home Team Score</p>
+                <button v-on:click="homeTeamAdd1">Add 1</button>  
+                <button v-on:click="homeTeamAdd2">Add 2</button>  
+                <button v-on:click="homeTeamAdd3">Add 3</button>  
+                <button v-on:click="homeTeamSubtract1">Subtract 1</button>  
+            </div>
         </section>
-
     </div>
 </template>
 
 <script>
-    export default {
-        name: "ScoreBoard",
-        data: function () {
-            return {
-                homeName: "",
-                homeTeamDisplayName: "Home Team",
-                homeScore: 0,
-                counter: 0,
-            }
+export default {
+    name: "ScoreBoard",
+    data: function () {
+        return {
+            team1Name: "",
+            team1DisplayName: "",
+            t1_counter: 0,
+            team1_score: 0,
+
+        }
+    },
+    methods: {
+        t1_update_name: function () {
+            console.log("updated")
+            this.team1DisplayName = this.team1Name
         },
-        methods: {
-            homeTeamUpdateName: function () {
-                console.log("home is being updated")
-                this.homeTeamDisplayName = this.homeName
-            }
+
+        homeTeamAdd1: function () {
+            console.log("add one is being clicked")
+            this.team1_score++;
         },
 
+        homeTeamAdd2: function () {
+            console.log("add two")
+            this.team1_score += 2;
+        },
 
+        homeTeamAdd3: function () {
+            console.log("add 3")
+            this.team1_score += 3;
+        },
 
+        homeTeamSubtract1: function () {
+            console.log("take one away")
+            this.team1_score --;
+        }
+        
     }
 
-
+}
 </script>
 
 <style>
-    .main-box {
-        border: 2px solid black;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        height: 25em;
-        align-items: center;
-        padding: 2em;
-    }
-
-    .home-team {
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* .away-team {
-        display: flex;
-        flex-direction: column;
-    } */
-
     .score {
         font-size: 3em;
-    }
-
-    button {
-        border: 1px solid black;
-        border-radius: 3px;
-        padding: 2px;
-        margin: 3px;
-    }
-
-    button:hover {
-        background: blue;
-        color: white;
     }
 </style>
